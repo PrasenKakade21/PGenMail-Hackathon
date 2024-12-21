@@ -13,7 +13,7 @@ require("dotenv").config();
 app.use(bodyParser.json());
 
 const corsOptions = {
-  origin: ["http://localhost:5173"]
+  origin: ["https://pgen-mail-client-9i3ntvk96-prasen-kakades-projects.vercel.app"]
 };
 
 app.use(cors(corsOptions));
