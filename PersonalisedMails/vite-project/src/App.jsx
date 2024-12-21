@@ -16,7 +16,7 @@ function App() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ 
-          email: email, prompt:topic,scheduleTime: time }),
+          email: email, prompt:topic,send_time: time }),
       });
 
       if (response.ok) {
