@@ -10,7 +10,7 @@ function App() {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('pgen-mail-server-dyt6rv8z8-prasen-kakades-projects.vercel.app/add-user', { 
+      const response = await fetch('https://pgen-mail-server.vercel.app/add-user', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
