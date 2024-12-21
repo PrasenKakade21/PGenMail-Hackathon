@@ -30,7 +30,6 @@ mongoose
   .catch((err) => {
     console.error("MongoDB connection error:", err);
   });
-
 // User Schema
 const userSchema = new mongoose.Schema({
   email: {
@@ -45,14 +44,33 @@ const userSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  scheduleTime:{
-    type: String,
-    require: true
+  send_time:{
+    type:String,
+    require:true,
+    default:"8:00"
   },
-  dateOfJoining: {
+  last_sent:{
+    type:Date,
+    default:null
+  },
+  active:{
+    type:Boolean,
+    default:true
+  },
+  created_at: {
     type: Date,
     default: Date.now,
   },
+  last_success:{
+    type:Date
+  },
+  error_count:{
+
+  },
+  last_attempt:{
+    type:Date,
+    default:null
+  }
 });
 
 // User Model
@@ -66,7 +84,7 @@ app.post("/add-user", async (req, res) => {
     const reqBody = z.object({
       email: z.string().min(3).max(100).email(),
       prompt: z.string().min(100).max(300),
-      scheduleTime: z.string()
+      send_time: z.string()
     });
     const parsedData = reqBody.safeParse(req.body);
 
@@ -79,7 +97,7 @@ app.post("/add-user", async (req, res) => {
     }
     const email = req.body.email;
     const prompt = req.body.prompt;
-    const scheduleTime = req.body.scheduleTime;
+    const scheduleTime = req.body.send_time;
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(409).json({
@@ -102,8 +120,8 @@ app.post("/add-user", async (req, res) => {
       data: {
         email: newUser.email,
         prompt: newUser.prompt,
-        scheduleTime: newUser.scheduleTime,
-        dateOfJoining: newUser.dateOfJoining,
+        send_time: newUser.send_time,
+        created_at: newUser.created_at,
       },
     });
   } catch (error) {
