@@ -13,7 +13,7 @@ require("dotenv").config();
 app.use(bodyParser.json());
 
 const corsOptions = {
-  origin: ["https://pgen-mail-client.vercel.app/"]
+  origin: ["https://pgen-mail-client.vercel.app"]
 };
 
 app.use(cors(corsOptions));
