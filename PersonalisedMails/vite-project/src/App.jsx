@@ -34,10 +34,10 @@ function App() {
   return (
     <div className='bg-white p-8 mt-3 rounded-lg'>
       <div className='text-black p-5 flex flex-col justify-center items-center'>
-        <label className=' text-xl mb-2'>Enter your mail: </label>
+        <label className=' text-xl mb-2'>Enter your mail </label>
         <input 
           className='bg-cyan-50 rounded-lg' 
-          placeholder='  E-mail' 
+          placeholder='  E-mail' 
           type='email' 
           value={email} 
           onChange={(e) => setEmail(e.target.value)} 
@@ -54,7 +54,7 @@ function App() {
         />
       </div>
       <div className='p-5 text-black flex flex-col justify-center items-center'>
-        <label className='text-xl mb-2'>At what time would you like to recieve your mail </label>
+        <label className='text-xl mb-2'>Schedule your mail </label>
         <input 
           className='text-black bg-cyan-50 rounded-md p-1 ' 
           type='time' 
