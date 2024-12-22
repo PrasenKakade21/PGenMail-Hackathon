@@ -27,6 +27,7 @@ function App() {
         
         
       } else {
+        alert("oops! an Error occurred  ")
         console.error('Error submitting data:', response.status);
         
       }
