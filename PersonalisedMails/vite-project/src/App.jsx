@@ -20,6 +20,10 @@ function App() {
 
       if (response.ok) {
         console.log('Data submitted successfully!');
+        alert("Subscribed Sucessfully ")
+        setEmail("")
+        setTopic("")  
+        
         
       } else {
         console.error('Error submitting data:', response.status);
