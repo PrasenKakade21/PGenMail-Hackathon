@@ -10,12 +10,13 @@ function App() {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('/your-api-endpoint', { 
+      const response = await fetch('https://pgen-mail-server.vercel.app/add-user', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, topic, time }),
+        body: JSON.stringify({ 
+          email: email, prompt:topic,send_time: time }),
       });
 
       if (response.ok) {
@@ -34,14 +35,14 @@ function App() {
       
     }
   };
-
-  return (
+  
+return (
     <div className='bg-white p-8 mt-3 rounded-lg'>
       <div className='text-black p-5 flex flex-col justify-center items-center'>
         <label className=' text-xl mb-2'>Enter your mail </label>
         <input 
           className='bg-cyan-50 rounded-lg' 
-          placeholder='  E-mail' 
+          placeholder='E-mail' 
           type='email' 
           value={email} 
           onChange={(e) => setEmail(e.target.value)} 
